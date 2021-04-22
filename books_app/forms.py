@@ -25,7 +25,9 @@ class AuthorForm(FlaskForm):
     # STRETCH CHALLENGE: Add more fields here as well as in `models.py` to
     # collect more information about the author, such as their birth date,
     # country, etc.
-    pass
+    name = StringField('Author Name', validators=[DataRequired(), Length(min=3, max=80)])
+    biography = TextAreaField('Author Biography', validators=[DataRequired(), Length(min=3, max=80)])
+    submit = SubmitField('Submit')
 
 
 class GenreForm(FlaskForm):
@@ -35,3 +37,5 @@ class GenreForm(FlaskForm):
     # - the genre's name (e.g. fiction, non-fiction, etc)
     # - a submit button
     pass
+    name = StringField('Genre Name', validators=[DataRequired(), Length(min=3, max=80)])
+    submit = SubmitField('Submit')
